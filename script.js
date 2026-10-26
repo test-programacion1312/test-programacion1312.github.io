@@ -1,4 +1,6 @@
-    // 1. Creamos las variables una a una capturando los valores del HTML
+emailjs.init("Jj90ptdivMpcaRxE6");
+
+// 1. Creamos las variables una a una capturando los valores del HTML
     const nombreUsuario = document.getElementById("nombre").value;
     const emailUsuario = document.getElementById("email").value;
     const asuntoUsuario = document.getElementById("asunto").value;
@@ -14,7 +16,7 @@
     };
 
     // 3. Enviamos el objeto usando emailjs.send
-    emailjs.send("service_18hdaff", "template_z8rg1tm", templateParams, "Jj90ptdivMpcaRxE6")
+    emailjs.send("service_18hdaff", "template_z8rg1tm", templateParams)
         .then(function(response) {
             console.log("¡Correo enviado con éxito!", response.status, response.text);
             alert('¡Mensaje enviado!');
