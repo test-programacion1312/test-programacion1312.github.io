@@ -8,9 +8,9 @@ emailjs.init("Jj90ptdivMpcaRxE6");
 
     // 2. Creamos el objeto agrupando esas variables para EmailJS
     const templateParams = {
-        from_name: nombreUsuario,
-        from_email: emailUsuario,
-        asunto: asuntoUsuario,
+        name: nombreUsuario,
+        correo: emailUsuario,
+        title: asuntoUsuario,
         message: mensajeUsuario
         
     };
