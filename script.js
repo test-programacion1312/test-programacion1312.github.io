@@ -1,13 +1,13 @@
 emailjs.init("Jj90ptdivMpcaRxE6");
 
 // 1. Creamos las variables una a una capturando los valores del HTML
-    const nombreUsuario = document.getElementById("nombre").value;
-    const emailUsuario = document.getElementById("email").value;
-    const asuntoUsuario = document.getElementById("asunto").value;
-    const mensajeUsuario = document.getElementById("mensaje").value;
+    var nombreUsuario = document.getElementById("nombre").value;
+    var emailUsuario = document.getElementById("email").value;
+    var asuntoUsuario = document.getElementById("asunto").value;
+    var mensajeUsuario = document.getElementById("mensaje").value;
 
     // 2. Creamos el objeto agrupando esas variables para EmailJS
-    const templateParams = {
+    var templateParams = {
         name: nombreUsuario,
         correo: emailUsuario,
         title: asuntoUsuario,
