@@ -1,13 +1,26 @@
-let form = document.getElementById("formContacto");
+    // 1. Creamos las variables una a una capturando los valores del HTML
+    const nombreUsuario = document.getElementById('nombre').value;
+    const emailUsuario = document.getElementById('email').value;
+    const asuntoUsuario = document.getElementById('asunto').value;
+    const mensajeUsuario = document.getElementById('mensaje').value;
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
+    // 2. Creamos el objeto agrupando esas variables para EmailJS
+    const templateParams = {
+        from_name: nombreUsuario,
+        from_email: emailUsuario,
+        asunto: asuntoUsuario,
+        message: mensajeUsuario
+        
+    };
 
-    let respuestaCaptcha = grecaptcha.getResponse();
-
-    if(respuestaCaptcha.length == 0){
-        alert("dale copate y confirma que no sos un robot");
-        return;
-    }
-    alert("bien ahí, se mando correcto");
+    // 3. Enviamos el objeto usando emailjs.send
+    emailjs.send('service_18hdaff', 'template_z8rg1tm', templateParams, 'Jj90ptdivMpcaRxE6')
+        .then(function(response) {
+            console.log('¡Correo enviado con éxito!', response.status, response.text);
+            alert('¡Mensaje enviado!');
+            document.getElementById('contact-form').reset(); // Limpia el formulario
+        }, function(error) {
+            console.log('Error al enviar:', error);
+            alert('Hubo un error al enviar el mensaje.');
+        });
 });
