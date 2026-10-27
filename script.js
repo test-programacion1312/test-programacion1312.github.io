@@ -1,6 +1,6 @@
 const btn = document.getElementById('button');
 
-document.getElementById('form')
+document.getElementById('formContacto')
  .addEventListener('submit', function(event) {
    event.preventDefault();
 
