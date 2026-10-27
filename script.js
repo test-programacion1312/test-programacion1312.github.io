@@ -1,15 +1,20 @@
-var formulario = document.getElementById("formContacto");
-formulario.addEventListener("submit", sendEmail);
+const btn = document.getElementById('button');
 
-var serviceId = "service_og8ydyr";
-var templateId = "template_b7mz4ui";
-var apiKey = "vIVCGnBskUpFy5bDA";
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
 
-function sendEmail(event){
-    event.preventDefault();
-    emailjs.init(serviceId);
+   btn.value = 'Sending...';
 
-    emailjs.sendForm(serviceId, templateId, formulario, apiKey);
-    .then(result => alert("Su mensaje se ha enviado con exito!"));
-    .catch(error => alert("Ha ocurrido un error!"));
-}
+   const serviceID = 'service_og8ydyr';
+   const templateID = 'template_b7mz4ui';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
