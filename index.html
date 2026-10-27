@@ -13,21 +13,21 @@
     <div class="form-container">
         <h2>Contáctanos</h2>
         <form id="formContacto">
-            <label>Nombre</label>
-            <input type="text" id="nombre" required>
+            <label id="name">Nombre</label>
+            <input type="text" id="name" name="name" required>
 
-            <label>Correo electrónico</label>
-            <input type="email" id="correo" required>
+            <label id="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
 
-            <label>Asunto</label>
-            <input type="text" id="asunto" required>
+            <label id="title">Asunto</label>
+            <input type="text" id="title" name="title" required>
 
-            <label>Mensaje</label>
-            <textarea id="mensaje" rows="5" required></textarea>
+            <label id="message">Mensaje</label>
+            <textarea id="message" rows="5" name="message" required></textarea>
 
             <div class="g-recaptcha" data-sitekey="6LdUaQIuAAAAACFGgEJlHvyJd3m4BniXphvvm_yz"></div>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" id="button">Enviar</button>
         </form>
     </div>
 </body>
