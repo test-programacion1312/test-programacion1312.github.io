@@ -1,28 +1,15 @@
-emailjs.init("Jj90ptdivMpcaRxE6");
+var formulario = document.getElementById("formContacto");
+formulario.addEventListener("submit", sendEmail);
 
-// 1. Creamos las variables una a una capturando los valores del HTML
-    var nombreUsuario = document.getElementById("nombre").value;
-    var emailUsuario = document.getElementById("email").value;
-    var asuntoUsuario = document.getElementById("asunto").value;
-    var mensajeUsuario = document.getElementById("mensaje").value;
+var serviceId = "service_og8ydyr";
+var templateId = "template_b7mz4ui";
+var apiKey = "vIVCGnBskUpFy5bDA";
 
-    // 2. Creamos el objeto agrupando esas variables para EmailJS
-    var templateParams = {
-        name: nombreUsuario,
-        correo: emailUsuario,
-        title: asuntoUsuario,
-        message: mensajeUsuario
-        
-    };
+function sendEmail(event){
+    event.preventDefault();
+    emailjs.init(serviceId);
 
-    // 3. Enviamos el objeto usando emailjs.send
-    emailjs.send("service_18hdaff", "template_z8rg1tm", templateParams)
-        .then(function(response) {
-            console.log("¡Correo enviado con éxito!", response.status, response.text);
-            alert('¡Mensaje enviado!');
-            document.getElementById("contact-form").reset(); // Limpia el formulario
-        }, function(error) {
-            console.log("Error al enviar:", error);
-            alert("Hubo un error al enviar el mensaje.");
-        });
-});
+    emailjs.sendForm(serviceId, templateId, formulario, apiKey);
+    .then(result => alert("Su mensaje se ha enviado con exito!"));
+    .catch(error => alert("Ha ocurrido un error!"));
+}
